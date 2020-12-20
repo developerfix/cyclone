@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   Navigator.pushNamed(context, '/login');
                 },
                 child: new Text(
-                  "Cyclone updated",
+                  "Cyclone updated again",
                   style: TextStyle(
                     fontFamily: "Montserrat",
                     fontWeight: FontWeight.w400,
