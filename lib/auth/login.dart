@@ -29,8 +29,8 @@ class _LoginState extends State<Login> {
               child: Column(
                 // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  Spacer(
-                    flex: 2,
+                  SizedBox(
+                    height: 50,
                   ),
                   Container(
                     child: Align(
@@ -48,7 +48,9 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                   ),
-                  Spacer(),
+                  SizedBox(
+                    height: 50,
+                  ),
                   Column(
                     children: <Widget>[
                       CustomTextField(
@@ -97,8 +99,14 @@ class _LoginState extends State<Login> {
                       ),
                     ],
                   ),
-                  Spacer(),
+                  SizedBox(
+                    height: 100,
+                  ),
+
                   CustomButton(
+                    onPress: () {
+                      Navigator.pushNamed(context, '/BNB');
+                    },
                     text: "LOG IN",
                     textStyle: TextStyle(
                       fontFamily: "Segoe UI",
@@ -107,7 +115,11 @@ class _LoginState extends State<Login> {
                       color: Color(0xffffffff),
                     ),
                   ),
-                  Spacer(),
+                  SizedBox(
+                    height: 50,
+                  ),
+
+                  // Spacer(),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -128,7 +140,9 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                   ),
-                  Spacer(),
+                  SizedBox(
+                    height: 20,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
@@ -148,7 +162,10 @@ class _LoginState extends State<Login> {
                         width: width * 0.109,
                       )
                     ],
-                  )
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
                 ],
               ),
             ),

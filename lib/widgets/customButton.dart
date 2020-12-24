@@ -16,7 +16,7 @@ class CustomButton extends StatelessWidget {
         height: height * 0.067,
         width: width * 0.802,
         decoration: BoxDecoration(
-          color: Color(orange),
+          gradient: linearGradient,
           boxShadow: [
             BoxShadow(
               offset: Offset(0.00, 5.00),

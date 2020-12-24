@@ -24,6 +24,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
+                  SizedBox(
+                    height: 50,
+                  ),
                   Container(
                     child: Align(
                       alignment: Alignment.centerLeft,
@@ -40,6 +43,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: 100,
+                  ),
                   new Text(
                     "Enter the email address you used to create\nyour account and we will email you a link to\n reset your password",
                     textAlign: TextAlign.center,
@@ -50,10 +56,16 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       color: Color(0xff745ea8),
                     ),
                   ),
+                  SizedBox(
+                    height: 20,
+                  ),
                   CustomTextField(
                     borderRadius: BorderRadius.circular(10.0),
                     icon: Icons.email,
                     text: "EMAIL",
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                   CustomButton(
                     text: "SEND EMAIL",
@@ -63,6 +75,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       fontSize: 12,
                       color: Color(0xffffffff),
                     ),
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                 ],
               ),

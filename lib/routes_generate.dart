@@ -1,8 +1,15 @@
 import 'package:cyclone/auth/forgot_password.dart';
 import 'package:cyclone/auth/login.dart';
 import 'package:cyclone/auth/signup.dart';
+import 'package:cyclone/screens/HomeScreen.dart';
+import 'package:cyclone/BNB.dart';
+import 'package:cyclone/screens/Topics/TopicDetails.dart';
+import 'package:cyclone/screens/Topics/Topics.dart';
+import 'package:cyclone/screens/Profile Section/profile.dart';
+import 'package:cyclone/screens/customNewsfeed/customNewsfeed.dart';
 import 'package:flutter/material.dart';
 
+import 'screens/chat/messages.dart';
 import 'screens/splash.dart';
 
 class RouteGenerator {
@@ -19,6 +26,20 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => SignUp());
       case '/forgotPassword':
         return MaterialPageRoute(builder: (_) => ForgotPassword());
+      case '/homeScreen':
+        return MaterialPageRoute(builder: (_) => HomeScreen());
+      case '/topics':
+        return MaterialPageRoute(builder: (_) => Topics());
+      case '/customNewsfeed':
+        return MaterialPageRoute(builder: (_) => CustomNewsfeed());
+      case '/profile':
+        return MaterialPageRoute(builder: (_) => Profile());
+      case '/BNB':
+        return MaterialPageRoute(builder: (_) => BottomNavBar());
+      case '/topicDetails':
+        return MaterialPageRoute(builder: (_) => TopicDetails());
+      case '/messages':
+        return MaterialPageRoute(builder: (_) => Messages());
 
       // If args is not of the correct type, return an error page.
       // You can also throw an exception while in development.
