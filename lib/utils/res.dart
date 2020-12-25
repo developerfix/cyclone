@@ -5,6 +5,7 @@ const int twine = 0xffBFA164;
 const int nobel = 0xffB7B7B7;
 const int gray = 0xff707070;
 const int serenade = 0xffFFF5EB;
+const int greenish = 0xff84C857;
 
 const int orange = 0xffF06E0C;
 const int yellow = 0xffF8B608;

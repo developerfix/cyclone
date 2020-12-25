@@ -1,0 +1,6 @@
+<svg id="backIcon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
+  <rect id="Background" width="22" height="22" rx="6" fill="#bfc4d3"/>
+  <g id="Icon" transform="translate(13.5 6.5) rotate(180)">
+    <path id="Arrow" d="M-5.841,4.85l4.4,4.005a.582.582,0,0,0,.768,0l.513-.467a.464.464,0,0,0,0-.7L-3.645,4.5-.158,1.311a.464.464,0,0,0,0-.7L-.672.145a.582.582,0,0,0-.768,0l-4.4,4.005A.464.464,0,0,0-5.841,4.85Z" transform="rotate(180)" fill="#fff"/>
+  </g>
+</svg>

@@ -6,6 +6,7 @@ import 'package:cyclone/BNB.dart';
 import 'package:cyclone/screens/Topics/TopicDetails.dart';
 import 'package:cyclone/screens/Topics/Topics.dart';
 import 'package:cyclone/screens/Profile Section/profile.dart';
+import 'package:cyclone/screens/chat/chat.dart';
 import 'package:cyclone/screens/customNewsfeed/customNewsfeed.dart';
 import 'package:flutter/material.dart';
 
@@ -40,6 +41,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => TopicDetails());
       case '/messages':
         return MaterialPageRoute(builder: (_) => Messages());
+      case '/chat':
+        return MaterialPageRoute(builder: (_) => Chat());
 
       // If args is not of the correct type, return an error page.
       // You can also throw an exception while in development.
