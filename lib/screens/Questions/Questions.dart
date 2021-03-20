@@ -28,7 +28,7 @@ class _QuestionsState extends State<Questions> {
               ),
               question(
                 width: width,
-                qs: 'I am the life of the party',
+                qs: 'I am th life of the party',
                 grpVal1: groupValue_1,
                 grpVal2: groupValue_2,
                 grpVal3: groupValue_3,
