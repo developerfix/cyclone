@@ -3,6 +3,7 @@ import 'package:cyclone/auth/login.dart';
 import 'package:cyclone/auth/signup.dart';
 import 'package:cyclone/screens/HomeScreen.dart';
 import 'package:cyclone/BNB.dart';
+import 'package:cyclone/screens/Questions/Questions.dart';
 import 'package:cyclone/screens/Topics/TopicDetails.dart';
 import 'package:cyclone/screens/Topics/Topics.dart';
 import 'package:cyclone/screens/Profile Section/profile.dart';
@@ -25,6 +26,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => Login());
       case '/signup':
         return MaterialPageRoute(builder: (_) => SignUp());
+      case '/questions':
+        return MaterialPageRoute(builder: (_) => Questions());
       case '/forgotPassword':
         return MaterialPageRoute(builder: (_) => ForgotPassword());
       case '/homeScreen':

@@ -77,6 +77,9 @@ class _SignUpState extends State<SignUp> {
                     height: 50,
                   ),
                   CustomButton(
+                    onPress: () {
+                      Navigator.pushNamed(context, '/questions');
+                    },
                     text: "SIGN UP",
                     textStyle: TextStyle(
                       fontFamily: "Segoe UI",

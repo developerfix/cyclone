@@ -1,6 +1,5 @@
 import 'package:cyclone/utils/res.dart';
 import 'package:cyclone/widgets/CustomPostContainer.dart';
-import 'package:cyclone/widgets/customAppbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
