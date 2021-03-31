@@ -81,7 +81,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             color: _index == index ? Color(twine) : null,
           ),
         ),
-        title: Container());
+        label: '');
   }
 
   // Text buildText(String title) {

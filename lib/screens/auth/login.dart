@@ -1,4 +1,4 @@
-import 'package:cyclone/auth/signup.dart';
+import 'package:cyclone/screens/auth/signup.dart';
 import 'package:cyclone/widgets/customButton.dart';
 import 'package:cyclone/widgets/customTextField.dart';
 import 'package:flutter/material.dart';

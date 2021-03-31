@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Center(
               child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, '/login');
+                  Navigator.pushNamed(context, '/wrapper');
                 },
                 child: new Text(
                   "Cyclone",
