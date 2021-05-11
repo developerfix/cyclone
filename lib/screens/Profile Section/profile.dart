@@ -13,7 +13,6 @@ class _ProfileState extends State<Profile> {
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: CustomAppBar(),
       body: SizedBox(
         height: height,
         child: SingleChildScrollView(

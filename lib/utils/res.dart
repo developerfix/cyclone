@@ -13,7 +13,7 @@ const int greyish = 0xff727C8E;
 
 const String circleWithArrow = "assets/svg/circle.svg";
 const String facebookLogo = "assets/svg/facebook.svg";
-const String googlePlusLogo = "assets/svg/google-plus.svg";
+const String googleIcon = "assets/svg/googleIcon.svg";
 const String twitterLogo = "assets/svg/twitter.svg";
 
 const LinearGradient linearGradient = LinearGradient(

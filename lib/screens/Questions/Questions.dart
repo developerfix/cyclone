@@ -26,6 +26,16 @@ class _QuestionsState extends State<Questions> {
               SizedBox(
                 height: 200,
               ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, '/BNB');
+                },
+                child: Container(
+                  height: 30,
+                  width: 30,
+                  color: Colors.greenAccent,
+                ),
+              ),
               question(
                 width: width,
                 qs: 'I am th life of the party',

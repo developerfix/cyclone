@@ -24,6 +24,15 @@ class _ForgotPasswordState extends State<ForgotPassword> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
+                  Row(
+                    children: [
+                      InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Icon(Icons.arrow_back_ios_outlined))
+                    ],
+                  ),
                   SizedBox(
                     height: 50,
                   ),
@@ -60,6 +69,8 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                     height: 20,
                   ),
                   CustomTextField(
+                    isSuffixIcon: false,
+                    onChanged: (val) {},
                     borderRadius: BorderRadius.circular(10.0),
                     icon: Icons.email,
                     text: "EMAIL",

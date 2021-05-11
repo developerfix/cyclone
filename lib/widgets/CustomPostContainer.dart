@@ -1,6 +1,7 @@
 import 'package:cyclone/utils/res.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 class PostContainer extends StatefulWidget {
   final String title;
@@ -8,8 +9,10 @@ class PostContainer extends StatefulWidget {
   final String publisherPicturePath;
   final String contentPicturePath;
   final Function onPressed;
+  final bool isCustomNewsfeedContainer;
   PostContainer(
       {this.category,
+      this.isCustomNewsfeedContainer,
       this.contentPicturePath,
       this.publisherPicturePath,
       this.onPressed,
@@ -66,7 +69,76 @@ class _PostContainerState extends State<PostContainer> {
                       ],
                     ),
                     Spacer(),
-                    Icon(Icons.more_vert)
+                    InkWell(
+                        onTap: () {
+                          widget.isCustomNewsfeedContainer
+                              ? showMaterialModalBottomSheet(
+                                  // backgroundColor: Colors.red,
+                                  context: context,
+                                  builder: (context) => Container(
+                                    height: 200,
+                                    width: width,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        buildText(
+                                          fontSize: 15,
+                                          color: 0xDD000000,
+                                          text: 'Report..',
+                                        ),
+                                        buildText(
+                                          text: 'Not Interested',
+                                          fontSize: 15,
+                                          color: 0xDD000000,
+                                        ),
+                                        buildText(
+                                          text: 'Copy Link',
+                                          fontSize: 15,
+                                          color: 0xDD000000,
+                                        ),
+                                      ],
+                                    ),
+                                    // color: Colors.,
+                                  ),
+                                )
+                              : showMaterialModalBottomSheet(
+                                  // backgroundColor: Colors.red,
+                                  context: context,
+                                  builder: (context) => Container(
+                                    height: 200,
+                                    width: width,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        buildText(
+                                          fontSize: 15,
+                                          color: 0xDD000000,
+                                          text: 'Report..',
+                                        ),
+                                        buildText(
+                                          fontSize: 15,
+                                          color: 0xDD000000,
+                                          text: 'Add to Specific',
+                                        ),
+                                        buildText(
+                                          text: 'Not Interested',
+                                          fontSize: 15,
+                                          color: 0xDD000000,
+                                        ),
+                                        buildText(
+                                          text: 'Copy Link',
+                                          fontSize: 15,
+                                          color: 0xDD000000,
+                                        ),
+                                      ],
+                                    ),
+                                    // color: Colors.,
+                                  ),
+                                );
+                        },
+                        child: Icon(Icons.more_vert))
                   ],
                 ),
               ),

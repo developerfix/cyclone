@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
             return MultiProvider(
               providers: [
                 StreamProvider<CycloneUser>.value(
+                    // initialData:,
                     value: AuthService().cycloneUser),
               ],
               // StreamProvider<List<UserInfo>>.value(

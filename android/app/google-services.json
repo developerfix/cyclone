@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "766586252333-jb1ubc2e7m4t2ufvoqfi3rbnba4upfo6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.cyclone",
+            "certificate_hash": "29b71d67db3ff98056eeaba4ff18b78a09d33720"
+          }
+        },
+        {
           "client_id": "766586252333-kangd4a1mqnn3uv6vqqqfqfmu96ameqa.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -34,11 +34,17 @@ dependencies:
   cached_network_image: ^2.5.1
   http: ^0.13.1
   webview_flutter: ^2.0.2
-  youtube_player_flutter: ^7.0.0+7
+  youtube_player_flutter: ^8.0.0
   firebase_core: ^1.0.2
   firebase_auth: ^1.0.1
   cloud_firestore: ^1.0.3
   provider: ^5.0.0
+  flutter_inner_drawer: "^1.0.0+1"
+  # google_fonts: any
+  modal_bottom_sheet: ^2.0.0
+  flutter_facebook_login: ^3.0.0
+  google_sign_in: ^5.0.2
+  top_snackbar_flutter: ^1.0.0
 
 
 dev_dependencies:
