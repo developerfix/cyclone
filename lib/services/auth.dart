@@ -40,16 +40,6 @@ class AuthService {
           email: email, password: password);
       User user = result.user;
 
-      // await DatabaseServices(uid: user.uid).updateUserData(
-      //   username: username,
-      //   location: 'Add Location',
-      //   balance: '0',
-      //   cart: {
-      //     "itemCount": 0,
-      //     "totalMoney": 0,
-      //   },
-      //   ordersInProgress: 0,
-      // );
       return _userFromFirebaseUser(user);
     } catch (e) {
       print(e);
