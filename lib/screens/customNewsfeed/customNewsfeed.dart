@@ -1,6 +1,4 @@
-import 'package:cyclone/utils/res.dart';
 import 'package:cyclone/widgets/CustomPostContainer.dart';
-import 'package:cyclone/widgets/customAppbar.dart';
 import 'package:flutter/material.dart';
 
 class CustomNewsfeed extends StatefulWidget {
@@ -28,7 +26,6 @@ class _CustomNewsfeedState extends State<CustomNewsfeed> {
               ),
               PostContainer(
                 isCustomNewsfeedContainer: true,
-
                 category: "Blog",
                 contentPicturePath: 'assets/images/blog.png',
                 publisherPicturePath: "assets/images/football.png",

@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
+import 'book_view_models/app_provider.dart';
+import 'book_view_models/details_provider.dart';
+import 'book_view_models/favorites_provider.dart';
+import 'book_view_models/genre_provider.dart';
+import 'book_view_models/home_provider.dart';
 import 'models/user.dart';
 import 'routes_generate.dart';
 
@@ -23,13 +28,19 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    // MultiProvider(
-    //     providers: [
-    //       StreamProvider<User>.value(value: AuthService().user),
-    //       StreamProvider<List<UserInfo>>.value(
-    //         value: DatabaseServices().userInfo,
-    //       ),
-    //     ],
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => AppProvider()),
+        ChangeNotifierProvider(create: (_) => HomeProvider()),
+        ChangeNotifierProvider(create: (_) => DetailsProvider()),
+        ChangeNotifierProvider(create: (_) => FavoritesProvider()),
+        ChangeNotifierProvider(create: (_) => GenreProvider()),
+        StreamProvider<User>.value(value: AuthService().user),
+        StreamProvider<List<UserInfo>>.value(
+          value: DatabaseServices().userInfo,
+        ),
+      ],
+    );
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         return OrientationBuilder(
@@ -37,7 +48,7 @@ class MyApp extends StatelessWidget {
             return MultiProvider(
               providers: [
                 StreamProvider<CycloneUser>.value(
-                    // initialData:,
+                    initialData: CycloneUser(),
                     value: AuthService().cycloneUser),
               ],
               // StreamProvider<List<UserInfo>>.value(

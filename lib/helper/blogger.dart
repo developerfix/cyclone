@@ -40,7 +40,7 @@ class Blogger {
         print('failed');
       }
     } on Exception catch (e) {
-      // print('Empty');
+      print(e);
     }
   }
 }

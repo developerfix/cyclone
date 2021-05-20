@@ -2,9 +2,7 @@ import 'package:cyclone/screens/auth/signup.dart';
 import 'package:cyclone/services/auth.dart';
 import 'package:cyclone/widgets/customButton.dart';
 import 'package:cyclone/widgets/customTextField.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:cyclone/utils/res.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
@@ -25,9 +23,6 @@ class _LoginState extends State<Login> {
   String password = '';
   String error = '';
   final bar = SnackBar(content: Text('Hello, world!'));
-  bool _islogin = false;
-  FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  FacebookLogin _facebookLogin = FacebookLogin();
 
   @override
   Widget build(BuildContext context) {

@@ -1,15 +1,13 @@
 import 'package:cyclone/screens/HomeScreen.dart';
+import 'package:cyclone/screens/NewsApi/screens/tabs/search_screen.dart';
 import 'package:cyclone/screens/Profile%20Section/profile.dart';
 import 'package:cyclone/screens/Topics/Topics.dart';
 import 'package:cyclone/screens/customNewsfeed/customNewsfeed.dart';
 import 'package:cyclone/services/auth.dart';
-import 'package:cyclone/utils/res.dart';
 import 'package:cyclone/widgets/customAppbar.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inner_drawer/inner_drawer.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
-import 'package:flutter_svg/svg.dart';
 
 class BottomNavBar extends StatefulWidget {
   @override
@@ -17,7 +15,6 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  // final GlobalKey<ScaffoldState> _drawerKey = new GlobalKey();
   final GlobalKey<InnerDrawerState> _innerDrawerKey =
       GlobalKey<InnerDrawerState>();
   final AuthService _auth = AuthService();
@@ -28,19 +25,20 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-    final double width = MediaQuery.of(context).size.width;
     switch (_index) {
       case 0:
         child = HomeScreen();
         break;
       case 1:
-        child = Topics();
+        child = SearchScreen();
         break;
       case 2:
         child = CustomNewsfeed();
         break;
       case 3:
+        child = Topics();
+        break;
+      case 4:
         child = Profile();
         break;
     }
@@ -160,21 +158,34 @@ class _BottomNavBarState extends State<BottomNavBar> {
               onTap: (newIndex) => setState(() => _index = newIndex),
               currentIndex: _index,
               items: [
-                buildBottomNavigationBarItem(
-                  iconPath: "assets/svg/homeScreenIcon.svg",
-                  index: 0,
+                BottomNavigationBarItem(
+                  label: "Home",
+                  icon: Icon(EvaIcons.homeOutline),
+                  activeIcon: Icon(EvaIcons.home),
                 ),
-                buildBottomNavigationBarItem(
-                  iconPath: "assets/svg/learningIcon.svg",
-                  index: 1,
+                BottomNavigationBarItem(
+                  label: "Search",
+                  icon: Icon(EvaIcons.searchOutline),
+                  activeIcon: Icon(EvaIcons.search),
                 ),
-                buildBottomNavigationBarItem(
-                  iconPath: "assets/svg/customNewsfeed.svg",
-                  index: 2,
+                BottomNavigationBarItem(
+                  label: "Add Topics",
+                  icon: Icon(EvaIcons.plus),
+                  activeIcon: Icon(EvaIcons.plusSquare),
                 ),
-                buildBottomNavigationBarItem(
-                  iconPath: "assets/svg/profileIcon.svg",
-                  index: 3,
+                BottomNavigationBarItem(
+                  label: "Read",
+                  icon: Icon(EvaIcons.bookOpenOutline),
+                  activeIcon: Icon(EvaIcons.bookOpen),
+                ),
+                BottomNavigationBarItem(
+                  label: "Account",
+                  // title: Padding(
+                  //     padding: EdgeInsets.only(top: 5.0),
+                  //     child: Text("Search",
+                  //         style: TextStyle(fontWeight: FontWeight.w600))),
+                  icon: Icon(Icons.person_outline),
+                  activeIcon: Icon(Icons.person),
                 ),
               ],
             ),
@@ -194,16 +205,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
     );
   }
 
-  BottomNavigationBarItem buildBottomNavigationBarItem(
-      {String iconPath, int index}) {
-    return BottomNavigationBarItem(
-        icon: Padding(
-          padding: EdgeInsets.only(bottom: 5),
-          child: SvgPicture.asset(
-            iconPath,
-            color: _index == index ? Color(twine) : null,
-          ),
-        ),
-        label: '');
-  }
+  // BottomNavigationBarItem buildBottomNavigationBarItem(
+  //     {String iconPath, int index}) {
+  //   return BottomNavigationBarItem(
+  //       icon: Padding(
+  //         padding: EdgeInsets.only(bottom: 5),
+  //         child: SvgPicture.asset(
+  //           iconPath,
+  //           color: _index == index ? Color(twine) : null,
+  //         ),
+  //       ),
+  //       label: '');
 }
