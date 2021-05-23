@@ -18,50 +18,51 @@ void main() async {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
     (_) {
       runApp(
-        MyApp(),
+        MultiProvider(
+          providers: [
+            ChangeNotifierProvider(create: (_) => AppProvider()),
+            ChangeNotifierProvider(create: (_) => HomeProvider()),
+            ChangeNotifierProvider(create: (_) => DetailsProvider()),
+            ChangeNotifierProvider(create: (_) => FavoritesProvider()),
+            ChangeNotifierProvider(create: (_) => GenreProvider()),
+
+            StreamProvider<CycloneUser>.value(
+                initialData: CycloneUser(uid: ''),
+                value: AuthService().cycloneUser),
+            // StreamProvider<List<UserInfo>>.value(
+            //   value: DatabaseServices().userInfo,
+            // ),
+          ],
+          child: MyApp(),
+        ),
       );
     },
   );
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  // This widget is the root of this application.
   @override
   Widget build(BuildContext context) {
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => AppProvider()),
-        ChangeNotifierProvider(create: (_) => HomeProvider()),
-        ChangeNotifierProvider(create: (_) => DetailsProvider()),
-        ChangeNotifierProvider(create: (_) => FavoritesProvider()),
-        ChangeNotifierProvider(create: (_) => GenreProvider()),
-        StreamProvider<User>.value(value: AuthService().user),
-        StreamProvider<List<UserInfo>>.value(
-          value: DatabaseServices().userInfo,
-        ),
-      ],
-    );
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         return OrientationBuilder(
           builder: (BuildContext context, Orientation orientation) {
-            return MultiProvider(
-              providers: [
-                StreamProvider<CycloneUser>.value(
-                    initialData: CycloneUser(),
-                    value: AuthService().cycloneUser),
-              ],
-              // StreamProvider<List<UserInfo>>.value(
-              // value: DatabaseServices().userInfo,
-              child: MaterialApp(
-                initialRoute: '/',
-                onGenerateRoute: RouteGenerator.generateRoute,
-                debugShowCheckedModeBanner: false,
-                theme: ThemeData(
-                  primarySwatch: Colors.purple,
-                  visualDensity: VisualDensity.adaptivePlatformDensity,
-                ),
-              ),
+            return Consumer<AppProvider>(
+              builder: (BuildContext context, AppProvider appProvider,
+                  Widget child) {
+                return MaterialApp(
+                  key: appProvider.key,
+                  navigatorKey: appProvider.navigatorKey,
+                  initialRoute: '/',
+                  onGenerateRoute: RouteGenerator.generateRoute,
+                  debugShowCheckedModeBanner: false,
+                  theme: ThemeData(
+                    primarySwatch: Colors.purple,
+                    visualDensity: VisualDensity.adaptivePlatformDensity,
+                  ),
+                );
+              },
             );
           },
         );

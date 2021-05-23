@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:provider/provider.dart';
 
-class Favorites extends StatefulWidget {
+class FavouriteBooks extends StatefulWidget {
   @override
-  _FavoritesState createState() => _FavoritesState();
+  _FavouriteBooksState createState() => _FavouriteBooksState();
 }
 
-class _FavoritesState extends State<Favorites> {
+class _FavouriteBooksState extends State<FavouriteBooks> {
   @override
   void initState() {
     super.initState();

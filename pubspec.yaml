@@ -60,7 +60,7 @@ dependencies:
   uuid: ^3.0.4
   objectdb: ^1.0.7+1
   epub_viewer: ^0.2.1
-  path_provider: ^2.0.1
+  path_provider: any
   permission_handler: ^4.2.0+hotfix.1
 
 

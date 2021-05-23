@@ -1,7 +1,7 @@
 import 'package:cyclone/screens/HomeScreen.dart';
 import 'package:cyclone/screens/NewsApi/screens/tabs/search_screen.dart';
 import 'package:cyclone/screens/Profile%20Section/profile.dart';
-import 'package:cyclone/screens/Topics/Topics.dart';
+import 'package:cyclone/screens/book_views/home/home.dart';
 import 'package:cyclone/screens/customNewsfeed/customNewsfeed.dart';
 import 'package:cyclone/services/auth.dart';
 import 'package:cyclone/widgets/customAppbar.dart';
@@ -36,7 +36,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         child = CustomNewsfeed();
         break;
       case 3:
-        child = Topics();
+        child = Home();
         break;
       case 4:
         child = Profile();
@@ -128,21 +128,39 @@ class _BottomNavBarState extends State<BottomNavBar> {
                     ? CustomAppBar(
                         actionButton: Icon(Icons.add, color: Colors.white),
                       )
-                    : CustomAppBar(
-                        actionButton: InkWell(
-                          onTap: () {
-                            _innerDrawerKey.currentState.toggle(
-                                // direction is optional
-                                // if not set, the last direction will be used
-                                //InnerDrawerDirection.start OR InnerDrawerDirection.end
-                                direction: InnerDrawerDirection.end);
-                          },
-                          child: Icon(
-                            Icons.settings,
-                            color: Colors.white,
+                    : _index == 3
+                        ? CustomAppBar(
+                            actionButton: InkWell(
+                              onTap: () {
+                                Navigator.pushNamed(context, '/explore');
+                              },
+                              child: Text(
+                                "Explore",
+                                style: TextStyle(
+                                  fontFamily: "Montserrat",
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: 15.0,
+                                  color: Colors.white,
+                                  height: 1.6,
+                                ),
+                              ),
+                            ),
+                          )
+                        : CustomAppBar(
+                            actionButton: InkWell(
+                              onTap: () {
+                                _innerDrawerKey.currentState.toggle(
+                                    // direction is optional
+                                    // if not set, the last direction will be used
+                                    //InnerDrawerDirection.start OR InnerDrawerDirection.end
+                                    direction: InnerDrawerDirection.end);
+                              },
+                              child: Icon(
+                                Icons.settings,
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
             body: SizedBox.expand(child: child),
             bottomNavigationBar: BottomNavigationBar(
               showSelectedLabels: false,

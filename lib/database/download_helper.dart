@@ -3,6 +3,9 @@ import 'dart:io';
 import 'package:objectdb/objectdb.dart';
 import 'package:path_provider/path_provider.dart';
 
+// import 'package:objectdb/objectdb.dart';
+// import 'package:path_provider/path_provider.dart';
+
 class DownloadsDB {
   getPath() async {
     Directory documentDirectory = await getApplicationDocumentsDirectory();
@@ -13,54 +16,54 @@ class DownloadsDB {
   //Insertion
   add(Map item) async {
     final db = ObjectDB(await getPath());
-    db.open();
+    // db.open();
     db.insert(item);
-    db.tidy();
+    // db.tidy();
     await db.close();
   }
 
   Future<int> remove(Map item) async {
     final db = ObjectDB(await getPath());
-    db.open();
+    // db.open();
     int val = await db.remove(item);
-    db.tidy();
+    // db.tidy();
     await db.close();
     return val;
   }
 
   Future removeAllWithId(Map item) async {
     final db = ObjectDB(await getPath());
-    db.open();
+    // db.open();
     List val = await db.find({});
     val.forEach((element) {
       db.remove(element);
     });
-    db.tidy();
+    // db.tidy();
     await db.close();
   }
 
   Future<List> listAll() async {
     final db = ObjectDB(await getPath());
-    db.
-    db.open();
+    // db.
+    // db.open();
     List val = await db.find({});
-    db.tidy();
+    // db.tidy();
     await db.close();
     return val;
   }
 
   Future<List> check(Map item) async {
     final db = ObjectDB(await getPath());
-    db.open();
+    // db.open();
     List val = await db.find(item);
-    db.tidy();
+    // db.tidy();
     await db.close();
     return val;
   }
 
   clear() async {
     final db = ObjectDB(await getPath());
-    db.open();
+    // db.open();
     db.remove({});
   }
 }

@@ -73,7 +73,11 @@ class _ProfileState extends State<Profile> {
                 SizedBox(
                   height: 20,
                 ),
-                buildRow(text1: 'Cards', text2: 'Chats', text3: 'Cards'),
+                buildRow(
+                    text1: 'Saved',
+                    text2: 'Chats',
+                    text3: 'Favs',
+                    navigation3: '/favs'),
                 SizedBox(
                   height: 20,
                 ),
@@ -124,24 +128,27 @@ class _ProfileState extends State<Profile> {
 
   Row buildRow({
     String text1,
+    String navigation1,
+    String navigation2,
+    String navigation3,
     String text2,
     String text3,
   }) {
     return Row(
       children: [
-        buildContainer(text: text1),
+        buildContainer(text: text1, navigation: navigation1),
         Spacer(),
-        buildContainer(text: text2),
+        buildContainer(text: text2, navigation: navigation2),
         Spacer(),
-        buildContainer(text: text3),
+        buildContainer(text: text3, navigation: navigation3),
       ],
     );
   }
 
-  InkWell buildContainer({String text}) {
+  InkWell buildContainer({String text, String navigation}) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, '/messages');
+        Navigator.pushNamed(context, navigation);
       },
       child: new Container(
         height: 43.00,

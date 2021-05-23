@@ -4,14 +4,17 @@ import 'package:cyclone/screens/Questions/Questions.dart';
 import 'package:cyclone/screens/Topics/TopicDetails.dart';
 import 'package:cyclone/screens/Topics/Topics.dart';
 import 'package:cyclone/screens/Profile Section/profile.dart';
+import 'package:cyclone/screens/Profile Section/favs.dart';
 import 'package:cyclone/screens/auth/forgot_password.dart';
 import 'package:cyclone/screens/auth/login.dart';
 import 'package:cyclone/screens/auth/signup.dart';
+import 'package:cyclone/screens/book_views/explore/explore.dart';
 import 'package:cyclone/screens/chat/chat.dart';
 import 'package:cyclone/screens/customNewsfeed/customNewsfeed.dart';
 import 'package:cyclone/screens/postViews/ArticleView.dart';
 import 'package:cyclone/screens/wrapper.dart';
 import 'package:flutter/material.dart';
+import 'package:cyclone/screens/book_views/favoriteBooks/favoriteBooks.dart';
 
 import 'screens/chat/messages.dart';
 import 'screens/splash.dart';
@@ -50,6 +53,12 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => Messages());
       case '/chat':
         return MaterialPageRoute(builder: (_) => Chat());
+      case '/explore':
+        return MaterialPageRoute(builder: (_) => Explore());
+      case '/favs':
+        return MaterialPageRoute(builder: (_) => Favs());
+      case '/favBooks':
+        return MaterialPageRoute(builder: (_) => FavouriteBooks());
       case '/articleView':
         return MaterialPageRoute(
           builder: (_) => ArticleView(

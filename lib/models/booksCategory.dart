@@ -84,7 +84,7 @@ class Feed {
     author =
         json['author'] != null ? new Author.fromJson(json['author']) : null;
     if (json['link'] != null) {
-      link = new List<Link>();
+      link = <Link>[];
       json['link'].forEach((v) {
         link.add(new Link.fromJson(v));
       });
@@ -101,12 +101,12 @@ class Feed {
     if (json['entry'] != null) {
       String t = json['entry'].runtimeType.toString();
       if (t == 'List<dynamic>' || t == '_GrowableList<dynamic>') {
-        entry = new List<Entry>();
+        entry = <Entry>[];
         json['entry'].forEach((v) {
           entry.add(new Entry.fromJson(v));
         });
       } else {
-        entry = new List<Entry>();
+        entry = <Entry>[];
         entry.add(new Entry.fromJson(json['entry']));
       }
     }
@@ -298,17 +298,17 @@ class Entry {
     if (json['category'] != null) {
       String t = json['category'].runtimeType.toString();
       if (t == 'List<dynamic>' || t == '_GrowableList<dynamic>') {
-        category = new List<Category>();
+        category = <Category>[];
         json['category'].forEach((v) {
           category.add(new Category.fromJson(v));
         });
       } else {
-        category = new List<Category>();
+        category = <Category>[];
         category.add(new Category.fromJson(json['category']));
       }
     }
     if (json['link'] != null) {
-      link = new List<Link1>();
+      link = <Link1>[];
       json['link'].forEach((v) {
         link.add(new Link1.fromJson(v));
       });
