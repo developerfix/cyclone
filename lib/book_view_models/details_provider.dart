@@ -9,7 +9,6 @@ import 'package:cyclone/util/consts.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 class DetailsProvider extends ChangeNotifier {
   CategoryFeed related = CategoryFeed();
@@ -92,17 +91,17 @@ class DetailsProvider extends ChangeNotifier {
     });
   }
 
-  Future downloadFile(BuildContext context, String url, String filename) async {
-    PermissionStatus permission = await PermissionHandler()
-        .checkPermissionStatus(PermissionGroup.storage);
+  // Future downloadFile(BuildContext context, String url, String filename) async {
+  //   PermissionStatus permission = await PermissionHandler()
+  //       .checkPermissionStatus(PermissionGroup.storage);
 
-    if (permission != PermissionStatus.granted) {
-      await PermissionHandler().requestPermissions([PermissionGroup.storage]);
-      startDownload(context, url, filename);
-    } else {
-      startDownload(context, url, filename);
-    }
-  }
+  //   if (permission != PermissionStatus.granted) {
+  //     await PermissionHandler().requestPermissions([PermissionGroup.storage]);
+  //     startDownload(context, url, filename);
+  //   } else {
+  //     startDownload(context, url, filename);
+  //   }
+  // }
 
   startDownload(BuildContext context, String url, String filename) async {
     Directory appDocDir = Platform.isAndroid

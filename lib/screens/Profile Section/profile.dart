@@ -1,5 +1,13 @@
+import 'dart:io';
+import 'dart:math';
+
+import 'package:cyclone/chattt/main.dart';
+import 'package:cyclone/models/user.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -7,8 +15,40 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  File _imgFile;
+
+  final picker = ImagePicker();
+
+  Future uploadImgToFirebase() async {
+    try {
+      int randomNumber = Random().nextInt(10000);
+      String imageLocation = 'images/images$randomNumber.jpg';
+
+      FirebaseStorage storage = FirebaseStorage.instance;
+      Reference ref =
+          storage.ref().child(imageLocation + DateTime.now().toString());
+      UploadTask uploadTask = ref.putFile(_imgFile);
+      uploadTask.then((res) {
+        res.ref.getDownloadURL();
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future pickImage() async {
+    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+
+    setState(() {
+      _imgFile = File(pickedFile.path);
+    });
+
+    uploadImgToFirebase();
+  }
+
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<CycloneUser>(context);
     final double height = MediaQuery.of(context).size.height;
     final double width = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -30,9 +70,17 @@ class _ProfileState extends State<Profile> {
                     children: [
                       Divider(),
                       CircleAvatar(
+                        backgroundColor: Colors.grey[300],
                         maxRadius: 50,
-                        backgroundImage:
-                            AssetImage('assets/images/profile.png'),
+                        // borderRadius: BorderRadius.circular(50),
+                        child: _imgFile != null
+                            ? Image.file(_imgFile)
+                            : Image.network(user.photoURL) != null
+                                ? Image.network(user.photoURL)
+                                : Icon(
+                                    Icons.add_a_photo,
+                                    color: Colors.black,
+                                  ),
                       )
                     ],
                   ),
@@ -44,7 +92,7 @@ class _ProfileState extends State<Profile> {
                     color: 0xff000000,
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
-                    text: "Freddie Mercury"),
+                    text: user.name),
                 SizedBox(
                   height: 5,
                 ),
@@ -65,7 +113,9 @@ class _ProfileState extends State<Profile> {
                         SizedBox(
                           width: 30,
                         ),
-                        SvgPicture.asset('assets/svg/upload.svg')
+                        InkWell(
+                            onTap: pickImage,
+                            child: SvgPicture.asset('assets/svg/upload.svg'))
                       ],
                     )
                   ],
@@ -129,7 +179,7 @@ class _ProfileState extends State<Profile> {
   Row buildRow({
     String text1,
     String navigation1,
-    String navigation2,
+    // Function navigation2,
     String navigation3,
     String text2,
     String text3,
@@ -138,7 +188,29 @@ class _ProfileState extends State<Profile> {
       children: [
         buildContainer(text: text1, navigation: navigation1),
         Spacer(),
-        buildContainer(text: text2, navigation: navigation2),
+        InkWell(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => FriendlyChatApp()));
+
+            // Navigator.pushNamed(context, navigation);
+          },
+          child: new Container(
+            height: 43.00,
+            width: 95.00,
+            decoration: BoxDecoration(
+              color: Color(0xfffff5eb),
+              borderRadius: BorderRadius.circular(15.00),
+            ),
+            child: Center(
+              child: buildText(
+                  color: 0xff000000,
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                  text: 'Chats'),
+            ),
+          ),
+        ),
         Spacer(),
         buildContainer(text: text3, navigation: navigation3),
       ],

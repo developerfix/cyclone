@@ -1,6 +1,10 @@
+import 'package:cyclone/Podcast/services/settings/mobile_settings_service.dart';
+import 'package:cyclone/Podcast/ui/anytime_podcast_app.dart';
 import 'package:cyclone/utils/res.dart';
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:provider/provider.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Widget actionButton;
@@ -16,6 +20,8 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 class _CustomAppBarState extends State<CustomAppBar> {
   @override
   Widget build(BuildContext context) {
+    final _mobileSettingsService = Provider.of<MobileSettingsService>(context);
+
     return Container(
       decoration: BoxDecoration(gradient: linearGradient),
       child: Column(
@@ -37,24 +43,25 @@ class _CustomAppBarState extends State<CustomAppBar> {
                     new Text(
                       "Cyclone",
                       style: TextStyle(
-                        fontFamily: "Montserrat",
-                        fontSize: 20,
-                        color: Color(0xfffff5eb),
-                      ),
+                          fontFamily: "Billabong",
+                          fontWeight: FontWeight.w600,
+                          // fontStyle: FontStyle.italic,
+                          fontSize: 25,
+                          color: Colors.white),
                     ),
                   ],
                 ),
                 Spacer(),
                 widget.actionButton == null
-                    ? Row(
-                        children: [
-                          SvgPicture.asset('assets/svg/question.svg'),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          SvgPicture.asset('assets/svg/notification.svg'),
-                        ],
-                      )
+                    ? InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (ctx) => AnytimePodcastApp(
+                                      _mobileSettingsService)));
+                        },
+                        child: Icon(Icons.podcasts, color: Colors.white))
                     : widget.actionButton,
               ],
             ),

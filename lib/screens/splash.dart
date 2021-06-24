@@ -64,13 +64,13 @@ class _SplashScreenState extends State<SplashScreen>
                     child: new Text(
                       "Cyclone",
                       style: TextStyle(
-                        fontFamily: "Montserrat",
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.w400,
-                        fontSize: 60,
-                        color: Color(0xffffffff),
-                      ),
+                          fontFamily: "Billabong",
+                          fontWeight: FontWeight.w600,
+                          // fontStyle: FontStyle.italic,
+                          fontSize: 60,
+                          color: Colors.white),
                     ),
+                   
                   ),
                 ),
                 SizedBox(
@@ -85,14 +85,16 @@ class _SplashScreenState extends State<SplashScreen>
                         height: 40,
                       ),
                     ),
-                    new Text(
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Text(
                       "Connecting",
                       style: TextStyle(
-                        fontFamily: "Montserrat",
-                        fontWeight: FontWeight.w400,
-                        fontSize: 20,
-                        color: Color(0xffffffff),
-                      ),
+                          fontFamily: "Billabong",
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20,
+                          color: Colors.white),
                     ),
                   ],
                 ),

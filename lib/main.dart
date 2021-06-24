@@ -1,8 +1,11 @@
+import 'package:cyclone/Podcast/services/settings/mobile_settings_service.dart';
 import 'package:cyclone/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:logging/logging.dart';
 import 'package:provider/provider.dart';
+import 'package:dcdg/dcdg.dart';
 
 import 'book_view_models/app_provider.dart';
 import 'book_view_models/details_provider.dart';
@@ -14,24 +17,32 @@ import 'routes_generate.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  Logger.root.level = Level.FINE;
+
+  Logger.root.onRecord.listen((record) {
+    print(
+        '${record.level.name}: - ${record.time}: ${record.loggerName}: ${record.message}');
+  });
+  var _mobileSettingsService = await MobileSettingsService.instance();
+
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
     (_) {
       runApp(
         MultiProvider(
           providers: [
+            Provider<MobileSettingsService>(
+                create: (_) => _mobileSettingsService),
             ChangeNotifierProvider(create: (_) => AppProvider()),
             ChangeNotifierProvider(create: (_) => HomeProvider()),
             ChangeNotifierProvider(create: (_) => DetailsProvider()),
             ChangeNotifierProvider(create: (_) => FavoritesProvider()),
             ChangeNotifierProvider(create: (_) => GenreProvider()),
-
             StreamProvider<CycloneUser>.value(
                 initialData: CycloneUser(uid: ''),
                 value: AuthService().cycloneUser),
-            // StreamProvider<List<UserInfo>>.value(
-            //   value: DatabaseServices().userInfo,
-            // ),
           ],
           child: MyApp(),
         ),

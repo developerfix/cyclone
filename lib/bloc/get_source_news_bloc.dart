@@ -13,14 +13,17 @@ class GetSourceNewsBloc {
     _subject.sink.add(response);
   }
 
-  void drainStream(){ _subject.value = null; }
+  void drainStream() {
+    _subject.value = null;
+  }
+
   @mustCallSuper
-  void dispose() async{
+  void dispose() async {
     await _subject.drain();
     _subject.close();
   }
 
   BehaviorSubject<ArticleResponse> get subject => _subject;
-  
 }
+
 final getSourceNewsBloc = GetSourceNewsBloc();

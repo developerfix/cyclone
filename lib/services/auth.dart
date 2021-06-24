@@ -10,7 +10,12 @@ class AuthService {
 
 //create user object based on firebase user
   CycloneUser _userFromFirebaseUser(User firebaseUser) {
-    return firebaseUser != null ? CycloneUser(uid: firebaseUser.uid) : null;
+    return firebaseUser != null
+        ? CycloneUser(
+            uid: firebaseUser.uid,
+            name: firebaseUser.displayName,
+            photoURL: firebaseUser.photoURL)
+        : null;
   }
 
 //auth State User Stream

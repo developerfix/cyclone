@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'package:cyclone/models/newsApi/article_response.dart';
 import 'package:cyclone/models/newsApi/source_response.dart';
+import 'package:cyclone/utils/keys.dart';
 import 'package:dio/dio.dart';
 
 class NewsRepository {
   static String mainUrl = "https://newsapi.org/v2/";
-  final String apiKey = "fd389979f5e341e48597ddd7eae361ec";
+  final String apiKey = newsAPIKey;
 
   final Dio _dio = Dio();
 
@@ -51,7 +52,7 @@ class NewsRepository {
   }
 
   Future<ArticleResponse> getHotNews() async {
-    var params = {"apiKey": apiKey, "q": "apple", "sortBy": "popularity"};
+    var params = {"apiKey": apiKey, "q": "samsung", "sortBy": "popularity"};
     try {
       Response response =
           await _dio.get(everythingUrl, queryParameters: params);

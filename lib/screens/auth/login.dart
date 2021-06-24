@@ -200,16 +200,16 @@ class _LoginState extends State<Login> {
                       children: <Widget>[
                         InkWell(
                           onTap: () async {
-                            dynamic result = await _auth.handleFacebookLogin();
-                            if (result == null) {
-                              showTopSnackBar(
-                                context,
-                                CustomSnackBar.error(
-                                  message:
-                                      "Something went wrong. Please check your credentials and try again",
-                                ),
-                              );
-                            }
+                            await _auth.handleFacebookLogin();
+                            // if (result == null) {
+                            //   showTopSnackBar(
+                            //     context,
+                            //     CustomSnackBar.error(
+                            //       message:
+                            //           "Something went wrong. Please check your credentials and try again",
+                            //     ),
+                            //   );
+                            // }
                           },
                           child: SvgPicture.asset(
                             facebookLogo,

@@ -1,8 +1,9 @@
+import 'package:cyclone/customNewsfeed/views/customNewsFeedHome.dart';
 import 'package:cyclone/screens/HomeScreen.dart';
 import 'package:cyclone/BNB.dart';
+import 'package:cyclone/screens/NewsApi/tabs/sources_screen.dart';
+import 'package:cyclone/screens/Podcast_UI/main.dart';
 import 'package:cyclone/screens/Questions/Questions.dart';
-import 'package:cyclone/screens/Topics/TopicDetails.dart';
-import 'package:cyclone/screens/Topics/Topics.dart';
 import 'package:cyclone/screens/Profile Section/profile.dart';
 import 'package:cyclone/screens/Profile Section/favs.dart';
 import 'package:cyclone/screens/auth/forgot_password.dart';
@@ -10,7 +11,7 @@ import 'package:cyclone/screens/auth/login.dart';
 import 'package:cyclone/screens/auth/signup.dart';
 import 'package:cyclone/screens/book_views/explore/explore.dart';
 import 'package:cyclone/screens/chat/chat.dart';
-import 'package:cyclone/screens/customNewsfeed/customNewsfeed.dart';
+import 'package:cyclone/screens/chat/chatHome.dart';
 import 'package:cyclone/screens/postViews/ArticleView.dart';
 import 'package:cyclone/screens/wrapper.dart';
 import 'package:flutter/material.dart';
@@ -39,26 +40,30 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => ForgotPassword());
       case '/homeScreen':
         return MaterialPageRoute(builder: (_) => HomeScreen());
-      case '/topics':
-        return MaterialPageRoute(builder: (_) => Topics());
-      case '/customNewsfeed':
-        return MaterialPageRoute(builder: (_) => CustomNewsfeed());
       case '/profile':
         return MaterialPageRoute(builder: (_) => Profile());
-      case '/BNB':
-        return MaterialPageRoute(builder: (_) => BottomNavBar());
-      case '/topicDetails':
-        return MaterialPageRoute(builder: (_) => TopicDetails());
+      // case '/BNB':
+      //   return MaterialPageRoute(builder: (_) => BottomNavBar());
       case '/messages':
         return MaterialPageRoute(builder: (_) => Messages());
-      case '/chat':
-        return MaterialPageRoute(builder: (_) => Chat());
+      // case '/chat':
+      //   return MaterialPageRoute(builder: (_) => Chat());
+      // case '/chat':
+      //   return MaterialPageRoute(builder: (_) => HomeScreen());
       case '/explore':
         return MaterialPageRoute(builder: (_) => Explore());
       case '/favs':
         return MaterialPageRoute(builder: (_) => Favs());
       case '/favBooks':
         return MaterialPageRoute(builder: (_) => FavouriteBooks());
+      case '/sourcesScreen':
+        return MaterialPageRoute(builder: (_) => SourceScreen());
+      case '/podcastMainUI':
+        return MaterialPageRoute(builder: (_) => PodcastMainUI());
+      case '/customNewsfeedHome':
+        return MaterialPageRoute(builder: (_) => CustomNewsFeedHome());
+      case '/chatHome':
+        return MaterialPageRoute(builder: (_) => ChatHome());
       case '/articleView':
         return MaterialPageRoute(
           builder: (_) => ArticleView(

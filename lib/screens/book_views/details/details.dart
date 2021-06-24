@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:provider/provider.dart';
+import 'package:share/share.dart';
 
 class Details extends StatefulWidget {
   final Entry entry;
@@ -57,6 +58,7 @@ class _DetailsState extends State<Details> {
                 onPressed: () async {
                   if (detailsProvider.faved) {
                     detailsProvider.removeFav();
+                    print('pressed');
                   } else {
                     detailsProvider.addFav();
                   }
@@ -64,13 +66,12 @@ class _DetailsState extends State<Details> {
                 icon: Icon(
                   detailsProvider.faved ? Icons.favorite : Feather.heart,
                   color: detailsProvider.faved
-                      ? Colors.red
+                      ? Colors.white
                       : Theme.of(context).iconTheme.color,
                 ),
               ),
               IconButton(
-                onPressed: () => {},
-                // _share(),
+                onPressed: () => _share(),
                 icon: Icon(
                   Feather.share,
                 ),
@@ -256,19 +257,19 @@ class _DetailsState extends State<Details> {
 
   _buildDownloadReadButton(DetailsProvider provider, BuildContext context) {
     if (provider.downloaded) {
-      return TextButton(
+      return FlatButton(
         onPressed: () => openBook(provider),
         child: Text(
           'Read Book',
         ),
       );
     } else {
-      return TextButton(
-        onPressed: () => provider.downloadFile(
-          context,
-          widget.entry.link[3].href,
-          widget.entry.title.t.replaceAll(' ', '_').replaceAll(r"\'", "'"),
-        ),
+      return FlatButton(
+        // onPressed: () => provider.downloadFile(
+        //   context,
+        //   widget.entry.link[3].href,
+        //   widget.entry.title.t.replaceAll(' ', '_').replaceAll(r"\'", "'"),
+        // ),
         child: Text(
           'Download',
         ),
@@ -325,11 +326,11 @@ class _DetailsState extends State<Details> {
     }
   }
 
-  // _share() {
-  //   Share.text(
-  //     '${widget.entry.title.t} by ${widget.entry.author.name.t}',
-  //     'Read/Download ${widget.entry.title.t} from ${widget.entry.link[3].href}.',
-  //     'text/plain',
-  //   );
-  // }
+  _share() {
+    Share.share(
+      '${widget.entry.title.t} by ${widget.entry.author.name.t}'
+      'Read/Download ${widget.entry.title.t} from ${widget.entry.link[3].href}.'
+      'text/plain',
+    );
+  }
 }
