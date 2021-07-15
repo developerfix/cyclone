@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CycloneApp</string>
+    <string name="facebook_app_id">3946675858785025</string>
+    <string name="fb_login_protocol_scheme">fb3946675858785025</string>
+</resources>

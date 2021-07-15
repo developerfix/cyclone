@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "766586252333",
+    "project_id": "cyclone-1c468",
+    "storage_bucket": "cyclone-1c468.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766586252333:android:243b43fcb890c5619c9ca4",
+        "android_client_info": {
+          "package_name": "com.app.cyclone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "766586252333-jb1ubc2e7m4t2ufvoqfi3rbnba4upfo6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.cyclone",
+            "certificate_hash": "29b71d67db3ff98056eeaba4ff18b78a09d33720"
+          }
+        },
+        {
+          "client_id": "766586252333-kangd4a1mqnn3uv6vqqqfqfmu96ameqa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUHYCKAH0UvLBgXtkejfqfvYd2wDfr6SY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "766586252333-kangd4a1mqnn3uv6vqqqfqfmu96ameqa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
